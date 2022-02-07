@@ -11,6 +11,7 @@ class Tableau1 extends Phaser.Scene {
 
     create() {
         this.StartGame()
+        let me = this
 
         this.droite = this.physics.add.sprite(this.largeur-20, 0,'carre').setOrigin(0, 0);
         this.droite.setDisplaySize(20,this.hauteur);
@@ -44,10 +45,14 @@ class Tableau1 extends Phaser.Scene {
         this.brick1 = this.physics.add.group();
         this.physics.add.collider(this.Nball.ball,this.brick1,);
 
-        this.physics.add.collider(this.Nball.ball,this.playerpad);
         this.physics.add.collider(this.Nball.ball,this.haut);
         this.physics.add.collider(this.Nball.ball,this.droite);
         this.physics.add.collider(this.Nball.ball,this.gauche);
+
+        this.physics.add.collider(this.Nball.ball,this.playerpad, function(){
+            me.Bounce(me.playerpad);
+        });
+
 
 
     }
@@ -82,6 +87,7 @@ class Tableau1 extends Phaser.Scene {
 
     StartGame() {
         this.Player = new Joueur('Vies', 'Player', this, 0);
+        this.Score = new Joueur('Score', 'Score', this, 0);
         this.Nball = new Ball(this)
         this.hauteur = 800;
         this.largeur = 800;

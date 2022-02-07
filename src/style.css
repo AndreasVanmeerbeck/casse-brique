@@ -5,7 +5,6 @@ body{
 #scores{
     color: #ffffff;
     font-size : 3vw;
-    display: flex;
     position: absolute;
     top: 0;
     width: 100%;
@@ -16,8 +15,4 @@ body{
 }
 .name{
     font-size: 2vw;
-}
-
-#scores >* {
-    margin: 1vw;
 }
