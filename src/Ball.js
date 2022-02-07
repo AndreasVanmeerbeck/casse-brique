@@ -7,5 +7,6 @@ class Ball {
         this.ball.body.setMaxVelocityX(900);
         this.ball.body.setMaxVelocityY(900);
         this.ball.body.setAllowGravity(false)
+        this.ball.setTintFill(0xFFFFFF);
     }
 }
